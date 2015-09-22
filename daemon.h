@@ -37,4 +37,19 @@ void deploy_daemon() {
 	}
 }
 
+void write_pid(const char *path) {
+	pid_t pid = getpid();
+	FILE *file = fopen(path, "w");
+
+	if (file == NULL) {
+		return;
+	}
+
+	if (fprintf(file, "%d\n", pid) < 0) {
+		
+	}
+
+	fclose(file);
+}
+
 #endif
